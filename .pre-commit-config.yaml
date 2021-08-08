@@ -17,4 +17,3 @@ repos:
     hooks:
       - id: debug-statements
       - id: check-yaml
-      - id: no-commit-to-branch
