@@ -1,4 +1,5 @@
 from random import choice
+
 import yaml
 
 # Separated into a file so that it is easier to expand

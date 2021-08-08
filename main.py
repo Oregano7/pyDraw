@@ -1,5 +1,6 @@
 import tkinter as tk
 from time import sleep
+
 from utilities.color_picker import get_color_code
 
 quads = [[1, 1], [-1, 1], [1, -1], [-1, -1]]
