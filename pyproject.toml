@@ -9,6 +9,7 @@ license = "GNU General Public License v3.0"
 python = "^3.9"
 black = "^21.7b0"
 PyYAML = "^5.4.1"
+pre-commit = "^2.14.0"
 
 [tool.poetry.dev-dependencies]
 
