@@ -107,7 +107,6 @@ class Curve(Element):
         pass
 
 
-
 def line_generator():
     """
     Useful for animation
@@ -124,9 +123,8 @@ if __name__ == "__main__":
         print(point)
     print("=== LINE TEST COMPLETE ===")
 
-
     print("=== CURVE TEST ===")
-    curve = Curve(center=Point(x=1,y=5), radius=7.8)
+    curve = Curve(center=Point(x=1, y=5), radius=7.8)
     curve_gen = curve.generate()
     for point in curve_gen:
         print(point)
