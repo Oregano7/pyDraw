@@ -6,7 +6,7 @@ from utilities.color_picker import get_color_code
 quads = [[1, 1], [-1, 1], [1, -1], [-1, -1]]
 
 
-def DDA(p1, p2, c, s=5):
+def DDA(p1, p2, c, s=5, t=0.1):
     x1, y1 = p1
     x2, y2 = p2
     dx = x2 - x1
@@ -18,8 +18,7 @@ def DDA(p1, p2, c, s=5):
     for a in range(steps):
         x += xinc
         y += yinc
-        print(x, y)
-        sleep(0.1)
+        sleep(t)
         canvas.create_rectangle(int(x) * s, int(y) * s, int(x + 1) * s, int(y + 1) * s, fill=c)
         root.update()
 
@@ -28,8 +27,6 @@ def octii(x, y, xc, yc, clr, s):
     for [a, b] in quads:
         xa1, yb1 = x * a + xc, y * b + yc
         xa2, yb2 = y * b + xc, x * a + yc
-        print(xa1, yb1)
-        print(xa2, yb2)
         canvas.create_rectangle(int(xa1) * s, int(yb1) * s, int(xa1 + 1) * s, int(yb1 + 1) * s, fill=clr)
         canvas.create_rectangle(int(xa2) * s, int(yb2) * s, int(xa2 + 1) * s, int(yb2 + 1) * s, fill=clr)
 
@@ -43,9 +40,9 @@ def Bresenham(c, r, clr, s=5, t=0.1, octii=octii):
         octii(x, y, xc, yc, clr, s=5)
         root.update()
         if p <= 0:
-            p = p + (4 * x) + 6
+            p += (4 * x) + 6
         else:
-            p = p + (4 * (x - y)) + 10
+            p += (4 * (x - y)) + 10
             y -= 1
         x += 1
 
@@ -119,6 +116,7 @@ def D_line(p1, p2, c, s=5):
 def make_D(c, r, clr):
     D_line([c[0], c[1] - r], [c[0], c[1] + r], c=clr)
     Bresenham(c, r, octii=D_curve, clr=clr)
+    Bresenham(c, r, octii=J_curve, clr=clr)
 
 
 if __name__ == "__main__":
